@@ -83,9 +83,8 @@ of 90 ADA.
 .. figure:: img/3.png
    :alt: Image 3
 
-In any transaction, the sum of the output values must match the sum of
-the input values. Although, strictly speaking, this is not true. There
-are two exceptions.
+In a transaction, the sum of the output values must match the sum of
+the input values. There are two exceptions.
 
 1. Transaction fees. In a real blockchain, you have to pay fees for each
    transactions.
@@ -96,10 +95,9 @@ are two exceptions.
 
 Let's take a look at a slightly more complicated example.
 
-Alice and Bob want to transfer 55 ADA each to Charlie. Alice has no
-choice, as she only has one UTxO. Bob also has no choice as neither of
-his two UTxOs is large enough to cover the 55 ADA he wishes to send to
-Charlie. Bob will have to use both his UTxOs as input.
+Alice and Bob want to transfer 55 ADA each to Charlie. Alice has only one UTxO, so this
+is the UTxO she must use. Bob has two UTxOs, but neither is large enough to cover the 55 ADA he 
+wishes to send to Charlie. So, Bob will have to use both his UTxOs as input.
 
 .. figure:: img/4.png
    :alt: Image 4
@@ -276,11 +274,6 @@ compile the sample contracts.
 Once you are inside the Nix shell, you can start the Plutus client and
 server from the cloned Plutus repository.
 
-The lecture videos were recorded at various times and the Plutus code
-that goes along with them was compiled against specific commits of the
-Plutus main branch. You can find the commit tag in the cabal.project
-file.
-
 Server
 ^^^^^^
 
@@ -309,7 +302,9 @@ playground can compile the code itself.
 The English Auction contract
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The code for the English Auction contract is at
+The code for the English Auction contract:
+
+.. code:: haskell
 
 ::
 
@@ -317,9 +312,10 @@ The code for the English Auction contract is at
 
 We will run this contract in our local Plutus Playground.
 
-If all went well above, you should be able to open the playground at
+If all went well with the Plutus setup, you should be able to open the playground at
 https://localhost:8009. You will likely receive a certificate error,
-which can be bypassed.
+which can be bypassed, using whichever method your browser offers you to ignore
+such an error.
 
 .. figure:: img/plutus_playground.png
    :alt: Plutus Playground

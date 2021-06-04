@@ -259,9 +259,8 @@ of 90 ADA.</p>
 <div class="figure align-default">
 <img alt="Image 3" src="_images/3.png" />
 </div>
-<p>In any transaction, the sum of the output values must match the sum of
-the input values. Although, strictly speaking, this is not true. There
-are two exceptions.</p>
+<p>In a transaction, the sum of the output values must match the sum of
+the input values. There are two exceptions.</p>
 <ol class="arabic simple">
 <li><p>Transaction fees. In a real blockchain, you have to pay fees for each
 transactions.</p></li>
@@ -270,10 +269,9 @@ or to burn tokens, in which case the inputs will be lower or higher
 than the outputs, depending on the scenario.</p></li>
 </ol>
 <p>Let’s take a look at a slightly more complicated example.</p>
-<p>Alice and Bob want to transfer 55 ADA each to Charlie. Alice has no
-choice, as she only has one UTxO. Bob also has no choice as neither of
-his two UTxOs is large enough to cover the 55 ADA he wishes to send to
-Charlie. Bob will have to use both his UTxOs as input.</p>
+<p>Alice and Bob want to transfer 55 ADA each to Charlie. Alice has only one UTxO, so this
+is the UTxO she must use. Bob has two UTxOs, but neither is large enough to cover the 55 ADA he
+wishes to send to Charlie. So, Bob will have to use both his UTxOs as input.</p>
 <div class="figure align-default">
 <img alt="Image 4" src="_images/4.png" />
 </div>
@@ -416,10 +414,6 @@ here</a>.</p>
 compile the sample contracts.</p>
 <p>Once you are inside the Nix shell, you can start the Plutus client and
 server from the cloned Plutus repository.</p>
-<p>The lecture videos were recorded at various times and the Plutus code
-that goes along with them was compiled against specific commits of the
-Plutus main branch. You can find the commit tag in the cabal.project
-file.</p>
 <div class="section" id="server">
 <h4><span class="section-number">2.3.1.1. </span>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/plutus/repo/plutus-playground-client
@@ -444,14 +438,15 @@ cabal build all
 </div>
 <div class="section" id="the-english-auction-contract">
 <h3><span class="section-number">2.3.2. </span>The English Auction contract<a class="headerlink" href="#the-english-auction-contract" title="Permalink to this headline">¶</a></h3>
-<p>The code for the English Auction contract is at</p>
+<p>The code for the English Auction contract:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">plutus</span><span class="o">-</span><span class="n">pioneer</span><span class="o">-</span><span class="n">program</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">week01</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">Week01</span><span class="o">/</span><span class="n">EnglishAuction</span><span class="o">.</span><span class="n">hs</span>
 </pre></div>
 </div>
 <p>We will run this contract in our local Plutus Playground.</p>
-<p>If all went well above, you should be able to open the playground at
+<p>If all went well with the Plutus setup, you should be able to open the playground at
 <a class="reference external" href="https://localhost:8009">https://localhost:8009</a>. You will likely receive a certificate error,
-which can be bypassed.</p>
+which can be bypassed, using whichever method your browser offers you to ignore
+such an error.</p>
 <div class="figure align-default">
 <img alt="Plutus Playground" src="_images/plutus_playground.png" />
 </div>
