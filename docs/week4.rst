@@ -1429,7 +1429,7 @@ So, let's try out *runEmulatorTrace*. Recall that, as well as and *EmulatorConfi
 If you run this in the REPL you will get a crazy amount of data output to the console, even though we are not doing anything with the trace. If you want to make it useful, you must
 somehow filter all this data down to something that sensible, and aggregate it in some way.
 
-Luckily, there are other functions as well as *runEmulatorTrace*. One of them is *runEmulatorTraceIo* which runs the emulation then outputs the trace in a nice form on the screen.
+Luckily, there are other functions as well as *runEmulatorTrace*. One of them is *runEmulatorTraceIO* which runs the emulation then outputs the trace in a nice form on the screen.
 
 .. code:: haskell
 
@@ -1534,16 +1534,16 @@ First, we define a *Trace*.
 
       myTrace :: EmulatorTrace ()
       myTrace = do
-      h1 <- activateContractWallet (Wallet 1) endpoints
-      h2 <- activateContractWallet (Wallet 2) endpoints
-      callEndpoint @"give" h1 $ GiveParams
-            { gpBeneficiary = pubKeyHash $ walletPubKey $ Wallet 2
-            , gpDeadline    = Slot 20
-            , gpAmount      = 1000
-            }
-      void $ waitUntilSlot 20
-      callEndpoint @"grab" h2 ()
-      void $ waitNSlots 1
+            h1 <- activateContractWallet (Wallet 1) endpoints
+            h2 <- activateContractWallet (Wallet 2) endpoints
+            callEndpoint @"give" h1 $ GiveParams
+                  { gpBeneficiary = pubKeyHash $ walletPubKey $ Wallet 2
+                  , gpDeadline    = Slot 20
+                  , gpAmount      = 1000
+                  }
+            void $ waitUntilSlot 20
+            callEndpoint @"grab" h2 ()
+            void $ waitNSlots 1
 
 The first thing we have to do is to activate the wallets using the monadic function *activateContractWallet*. We bind the result of this function to *h1*, and then bind the result of
 a second call (for Wallet 2) to *h2*. Those two values - *h1* and *h2* are handles to their respective wallets.
